@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:cardCornerRadius="16dp"
+        android:layout_margin="8dp"
+        android:id="@+id/crd_FakeNews">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+android:scaleType="centerCrop"
+            android:id="@+id/img_FakeNewsUrlToImage"/>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/txt_FakeNewsTitle"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="8dp"
+    android:textColor="#000"
+    android:textStyle="bold"
+    android:layout_below="@id/crd_FakeNews"
+    android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/txt_FakeNewsDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_FakeNewsTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="15dp"
+        android:lineSpacingExtra="4dp"
+        android:maxLines="10"
+        android:textColor="#000" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_FakeNewsDescription"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:id="@+id/txt_AuthorTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Author : "
+            android:textColor="#FF0000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_Author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/txt_AuthorTitle"
+            android:text="sdsdsdsd"
+            android:textColor="#008000"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txt_Author"
+            android:layout_marginLeft="15dp"
+            android:text="2022 12 01"
+            android:textSize="10sp"
+            android:id="@+id/txt_PublishDate"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

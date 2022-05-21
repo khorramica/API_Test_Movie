@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,17 +26,20 @@ public class MainActivity extends AppCompatActivity {
     MovieAdapter adapter;
     ApiInterface request;
 
+    String base_url = "https://api.themoviedb.org/3/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        request = ApiClient.GetApiClient().create(ApiInterface.class);
+        request = ApiClient.GetApiClient(base_url).create(ApiInterface.class);
         rvInfo = findViewById(R.id.rv_Info);
         rvInfo.setLayoutManager(new GridLayoutManager(this,2));
         rvInfo.setHasFixedSize(true);
 
         Call<BaseModel> call = request.getMovies("4a2a2604b86c68029752971e4fdb66fe");
+        Toast.makeText(getApplicationContext(),"Step 1",Toast.LENGTH_SHORT).show();
 
         call.enqueue(new Callback<BaseModel>() {
             @Override
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<BaseModel> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Error : " + t.getMessage(),Toast.LENGTH_SHORT).show();
 
             }
         });
